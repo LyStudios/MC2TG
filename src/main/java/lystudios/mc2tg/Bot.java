@@ -18,7 +18,7 @@ public class Bot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             if(update.getMessage().getText().equals("/playerlist")) {
                 SendMessage sendMessage = new SendMessage();
-                sendMessage.setChatId("-1001828881604");
+                sendMessage.setChatId(configuration.getConfig("chat-id"));
                 StringBuilder construct = new StringBuilder();
                 construct.append("Online Players: ");
                 Player[] var6;

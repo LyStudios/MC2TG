@@ -1,6 +1,7 @@
 package lystudios.mc2tg.events;
 
 import lystudios.mc2tg.Bot;
+import lystudios.mc2tg.Config;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -11,12 +12,15 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class OnMinecraftChatEvent extends PlayerListener {
 
+    Config configuration = new Config();
+
     public OnMinecraftChatEvent() {}
 
     @EventHandler
     public void onMessage(PlayerChatEvent event) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId("-1001828881604");
+
+        sendMessage.setChatId(configuration.getConfig("chat-id"));
         sendMessage.setText("<" + event.getPlayer().getName() + "> " + event.getMessage());
         try {
             (new Bot()).execute(sendMessage);
@@ -29,7 +33,7 @@ public class OnMinecraftChatEvent extends PlayerListener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId("-1001828881604");
+        sendMessage.setChatId(configuration.getConfig("chat-id"));
         sendMessage.setText(event.getJoinMessage().substring(2));
         try {
             (new Bot()).execute(sendMessage);
@@ -42,7 +46,7 @@ public class OnMinecraftChatEvent extends PlayerListener {
     @EventHandler
     public void onLeave(PlayerQuitEvent event) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId("-1001828881604");
+        sendMessage.setChatId(configuration.getConfig("chat-id"));
         sendMessage.setText(event.getQuitMessage().substring(2));
         try {
             (new Bot()).execute(sendMessage);

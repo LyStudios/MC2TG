@@ -15,7 +15,6 @@ public final class MC2TG extends JavaPlugin {
     public MC2TG() {}
 
     public void onEnable() {
-        Config configuration = new Config();
         try {
             bot.registerBot(new Bot());
         } catch (TelegramApiException var2) {

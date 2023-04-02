@@ -14,7 +14,7 @@ public class Config {
     static File configs = new File(mainDirectory + File.separator + "config.cfg");
     static Properties config = new Properties();
 
-    Config(){
+    public Config(){
         File mainDir = new File(mainDirectory);
         if(!mainDir.exists()){
             mainDir.mkdir();
@@ -25,6 +25,7 @@ public class Config {
                 configs.createNewFile();
                 FileOutputStream out = new FileOutputStream(configs);
                 config.put("token", "token");
+                config.put("chat-id", "0");
                 config.store(out, name+" Config file");
                 out.flush();
                 out.close();
