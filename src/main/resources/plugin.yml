@@ -1,0 +1,8 @@
+name: MC2TG
+version: '${project.version}'
+main: lystudios.mc2tg.MC2TG
+authors: [ LyStudios, LeenzeryDev ]
+description: Telegram and Minecraft chat bridge, specially for my beta 1.7.3 server
+commands:
+  list:
+    usage: /<command>
