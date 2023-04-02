@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@v2
         if: success()
         with:
-          name: Geyser Spigot
+          name: MC2TG
           path: target/MC2TG-0.1.0.jar
